@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="T-Life" />
+    <meta name="description" content="T-Life成员分布" />
+    <title>T-Life成员分布</title>
+    <!--引用百度地图API-->
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=734930E5C87880f1ac923b06fb9a201e"></script>
+    <script type="text/javascript" src="js/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //自动适应屏幕大小
+            var autoHeightDivs = $("div.autoheight");
+            if (autoHeightDivs.length > 0) {
+                // autoHeightDivs.css("overflow", "auto");
+                $(window).resize(function () {
+                    var _addHeight = $(window).height() - $("body").outerHeight(true);
+                    var _height = autoHeightDivs.height();
+                    autoHeightDivs.height(_height + _addHeight - (autoHeightDivs.outerHeight(true) - _height) / 2);
+                }).resize();
+            }
+        });
+    </script>
+  </head>
+  
+  <body>
+    <!--百度地图容器-->
+    <div class="autoheight" style="width:100%;height:auto;font-size:12px" id="map"></div>
+  </body>
+  <script type="text/javascript">
+    //创建和初始化地图函数：
+    function initMap(){
+      createMap();//创建地图
+      setMapEvent();//设置地图事件
+      addMapControl();//向地图添加控件
+      addMapOverlay();//向地图添加覆盖物
+    }
+    function createMap(){ 
+      map = new BMap.Map("map"); 
+      map.centerAndZoom(new BMap.Point(117.2785,31.926074),13);
+    }
+    function setMapEvent(){
+      map.enableScrollWheelZoom();
+      map.enableKeyboard();
+      map.enableDragging();
+      map.enableDoubleClickZoom()
+    }
+    function addClickHandler(target,window){
+      target.addEventListener("click",function(){
+        target.openInfoWindow(window);
+      });
+    }
+    function addMapOverlay(){
+      var markers = [
+        {content:"四里河<br>13655607137(王珣)",title:"王珣",imageOffset: {width:-45,height:-21},position:{lat:31.884645,lng:117.260543}},
+        {content:"南滟湖公共安全研究院<br>15905697760()",title:"李双双",imageOffset: {width:-45,height:-21},position:{lat:31.769256,lng:117.276268}},
+        {content:"军官培训中心<br>15805510908(吴亚山)",title:"吴亚山",imageOffset: {width:0,height:-21},position:{lat:31.857048,lng:117.178745}},
+        {content:"天鹅湖<br>13956029293(张庆强)",title:"张庆强",imageOffset: {width:0,height:-21},position:{lat:31.822301,lng:117.226577}},
+        {content:"科大讯飞<br>18256091323(管美君)",title:"管美君",imageOffset: {width:-45,height:-21},position:{lat:31.837446,lng:117.15066}},
+        {content:"天都路和锦绣大道交口<br>13956029713(黄振齐)<br>18555110789(秦惠实)",title:"黄振齐 秦惠实",imageOffset: {width:0,height:-21},position:{lat:31.759987,lng:117.247082}},
+        {content:"工大南区<br>15155134564(黄嵩)<br>18655179914(石楠)<br>15256036997(陈世燚)<br>13515607686(周亚东)",title:"黄嵩 石楠 陈世燚 周亚东",imageOffset: {width:0,height:-21},position:{lat:31.849139,lng:117.302306}},
+        {content:"工大新区<br>18298027219(江兵)",title:"江兵",imageOffset: {width:-45,height:-21},position:{lat:31.781021,lng:117.21147}},
+        {content:"蜀山区琥珀山庄<br>18856969448(朱侠)",title:"朱侠",imageOffset: {width:-45,height:-21},position:{lat:31.868914,lng:117.274404}},
+        {content:"和平广场<br>13156585210(胡艳梅)",title:"胡艳梅",imageOffset: {width:-45,height:-21},position:{lat:31.864437,lng:117.317761}}
+      ];
+      for(var index = 0; index < markers.length; index++ ){
+        var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
+        var marker = new BMap.Marker(point,{icon:new BMap.Icon("http://api.map.baidu.com/lbsapi/createmap/images/icon.png",new BMap.Size(20,25),{
+          imageOffset: new BMap.Size(markers[index].imageOffset.width,markers[index].imageOffset.height)
+        })});
+        var label = new BMap.Label(markers[index].title,{offset: new BMap.Size(25,5)});
+        var opts = {
+          width: 200,
+          title: markers[index].title,
+          enableMessage: false
+        };
+        var infoWindow = new BMap.InfoWindow(markers[index].content,opts);
+        marker.setLabel(label);
+        addClickHandler(marker,infoWindow);
+        map.addOverlay(marker);
+      };
+      var labels = [
+      ];
+      for(var index = 0; index < labels.length; index++){
+        var opt = { position: new BMap.Point(labels[index].position.lng,labels[index].position.lat )};
+        var label = new BMap.Label(labels[index].content,opt);
+        map.addOverlay(label);
+      };
+      var plOpts = [
+      ];
+      var plPath = [
+      ];
+      for(var index = 0; index < plOpts.length; index++){
+        var polyline = new BMap.Polyline(plPath[index],plOpts[index]);
+        map.addOverlay(polyline);
+      }
+    }
+    //向地图添加控件
+    function addMapControl(){
+      var scaleControl = new BMap.ScaleControl({anchor:BMAP_ANCHOR_TOP_LEFT});
+      scaleControl.setUnit(BMAP_UNIT_IMPERIAL);
+      map.addControl(scaleControl);
+      var navControl = new BMap.NavigationControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,type:3});
+      map.addControl(navControl);
+    }
+    var map;
+      initMap();
+  </script>
+</html>
