@@ -22,6 +22,9 @@
             }
         });
     </script>
+    <style type="text/css">
+        span {font-size: 150%}
+    </style>
   </head>
   
   <body>
@@ -53,16 +56,16 @@
     }
     function addMapOverlay(){
       var markers = [
-        {content:"四里河<br>13655607137(王珣)",title:"王珣",imageOffset: {width:-45,height:-21},position:{lat:31.884645,lng:117.260543}},
-        {content:"南滟湖公共安全研究院<br>15905697760(李双双)",title:"李双双",imageOffset: {width:-45,height:-21},position:{lat:31.769256,lng:117.276268}},
-        {content:"军官培训中心<br>15805510908(吴亚山)",title:"吴亚山",imageOffset: {width:0,height:-21},position:{lat:31.857048,lng:117.178745}},
-        {content:"天鹅湖<br>13956029293(张庆强)",title:"张庆强",imageOffset: {width:0,height:-21},position:{lat:31.822301,lng:117.226577}},
-        {content:"科大讯飞<br>18256091323(管美君)",title:"管美君",imageOffset: {width:-45,height:-21},position:{lat:31.837446,lng:117.15066}},
-        {content:"天都路和锦绣大道交口<br>13956029713(黄振齐)<br>18555110789(秦惠实)",title:"黄振齐 秦惠实",imageOffset: {width:0,height:-21},position:{lat:31.759987,lng:117.247082}},
-        {content:"工大南区<br>15155134564(黄嵩)<br>18655179914(石楠)<br>15256036997(陈世燚)<br>13515607686(周亚东)",title:"黄嵩 石楠 陈世燚 周亚东",imageOffset: {width:0,height:-21},position:{lat:31.849139,lng:117.302306}},
-        {content:"工大新区<br>18298027219(江兵)",title:"江兵",imageOffset: {width:-45,height:-21},position:{lat:31.781021,lng:117.21147}},
-        {content:"蜀山区琥珀山庄<br>18856969448(朱侠)",title:"朱侠",imageOffset: {width:-45,height:-21},position:{lat:31.868914,lng:117.274404}},
-        {content:"和平广场<br>13156585210(胡艳梅)",title:"胡艳梅",imageOffset: {width:-45,height:-21},position:{lat:31.864437,lng:117.317761}}
+        {content:"<span>四里河<br>13655607137(王珣)</span>",title:"<span>王珣</span>",imageOffset: {width:-45,height:-21},position:{lat:31.884645,lng:117.260543}},
+        {content:"<span>南滟湖公共安全研究院<br>15905697760(李双双)</span>",title:"<span>李双双</span>",imageOffset: {width:-45,height:-21},position:{lat:31.769256,lng:117.276268}},
+        {content:"<span>军官培训中心<br>15805510908(吴亚山)</span>",title:"<span>吴亚山</span>",imageOffset: {width:0,height:-21},position:{lat:31.857048,lng:117.178745}},
+        {content:"<span>天鹅湖<br>13956029293(张庆强)</span>",title:"<span>张庆强</span>",imageOffset: {width:0,height:-21},position:{lat:31.822301,lng:117.226577}},
+        {content:"<span>科大讯飞<br>18256091323(管美君)</span>",title:"<span>管美君</span>",imageOffset: {width:-45,height:-21},position:{lat:31.837446,lng:117.15066}},
+        {content:"<span>天都路和锦绣大道交口<br>13956029713(黄振齐)<br>18555110789(秦惠实)</span>",title:"<span>黄振齐 秦惠实</span>",imageOffset: {width:0,height:-21},position:{lat:31.759987,lng:117.247082}},
+        {content:"<span>工大南区<br>15155134564(黄嵩)<br>18655179914(石楠)<br>15256036997(陈世燚)<br>13515607686(周亚东)</span>",title:"<span>黄嵩 石楠 陈世燚 周亚东</span>",imageOffset: {width:0,height:-21},position:{lat:31.849139,lng:117.302306}},
+        {content:"<span>工大新区<br>18298027219(江兵)</span>",title:"<span>江兵</span>",imageOffset: {width:-45,height:-21},position:{lat:31.781021,lng:117.21147}},
+        {content:"<span>蜀山区琥珀山庄<br>18856969448(朱侠)</span>",title:"<span>朱侠</span>",imageOffset: {width:-45,height:-21},position:{lat:31.868914,lng:117.274404}},
+        {content:"<span>和平广场<br>13156585210(胡艳梅)</span>",title:"<span>胡艳梅</span>",imageOffset: {width:-45,height:-21},position:{lat:31.864437,lng:117.317761}}
       ];
       for(var index = 0; index < markers.length; index++ ){
         var point = new BMap.Point(markers[index].position.lng,markers[index].position.lat);
