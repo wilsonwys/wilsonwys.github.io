@@ -1,4 +1,4 @@
-// javascript:(function(){setInterval("updateMydata()",300);})();
+// javascript:(function(){var jsCode=document.createElement("script");jsCode.setAttribute("src","http://wilsonwys.github.io/tmp/btc38assist.js");document.body.appendChild(jsCode);setInterval("updateMydata()",300)}());
 
 function updateMydata()
 {
