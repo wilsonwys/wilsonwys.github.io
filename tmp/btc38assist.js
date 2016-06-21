@@ -11,25 +11,18 @@ function updateMydata()
 function calculateTotal()
 {
   //如果total表不存在则新建
+  var myOrderTableTotal = document.getElementById("myOrderTableTotal");
   if ($("#myOrderTableTotal").length <= 0)
   {
     var table = '<table width="881" id="myOrderTableTotal" class="tableStyle1"><tr height="35"><th width="175">挂单时间</th><th width="108">挂单类型</th><th width="160">挂单价格(<span class="mkType">CNY</span>)</th><th width="160">挂单数量(<span class="coinName">EAC</span>)</th><th width="160">挂单总额(<span class="mkType">CNY</span>)</th><th width="118">操作</th></tr></table>';
     var tr = '<tr style="height: 35px;"><td>挂单时间</td><td>类型</td><td>挂单价格</td><td>挂单数量</td><td>挂单总额</td><td>操作</td></tr>';
     $("#myOrderDiv").append(table);
-    $("#myOrderTableTotal").append(tr);
-    $("#myOrderTableTotal").append(tr);
-    $("#myOrderTableTotal").append(tr);
-    $("#myOrderTableTotal").rows[1].cells[1].innerHTML = "买入";
-    $("#myOrderTableTotal").rows[2].cells[1].innerHTML = "卖出";
-    $("#myOrderTableTotal").rows[3].cells[1].innerHTML = "合计";
+    myOrderTableTotal = document.getElementById("myOrderTableTotal");
+	myOrderTableTotal.rows[1].cells[1].innerHTML = "买入";
+	myOrderTableTotal.rows[2].cells[1].innerHTML = "卖出";
+	myOrderTableTotal.rows[3].cells[1].innerHTML = "合计";
   }
-
   //数据处理
-  var myOrderTableTotal = document.getElementById("myOrderTableTotal");
-  myOrderTableTotal.rows[1].cells[1].innerHTML = "买入";
-  myOrderTableTotal.rows[2].cells[1].innerHTML = "卖出";
-  myOrderTableTotal.rows[3].cells[1].innerHTML = "合计";
-
   var myOrderTable = document.getElementById("myOrderTable");
   var myOrderTableRows = myOrderTable.rows.length;
   var totalBuyCNY = 0;
