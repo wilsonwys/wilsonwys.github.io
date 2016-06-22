@@ -1,14 +1,18 @@
-// javascript:(function(){var jsCode=document.createElement("script");jsCode.setAttribute("src","http://wilsonwys.github.io/tmp/btc38assist.js");document.body.appendChild(jsCode);startUpdateMydata("eac");}());
+// javascript:(function(){var jsCode=document.createElement("script");jsCode.setAttribute("src","http://wilsonwys.github.io/tmp/btc38assist.js");document.body.appendChild(jsCode);setTimeout("startUpdateMydata(300)",1500);}());
 
-function startUpdateMydata(type) {
-    var targetUrl = "http://www.btc38.com/trade.html?btc38_trade_coin_name="+type;
-    if (window.location.href == targetUrl) {
-        setInterval("updateMydata()",300);
+var isStart = false;
+function startUpdateMydata(interval) {
+    var targetUrl = "http://www.btc38.com/trade.html";
+    if (window.location.href.indexOf(targetUrl) >= 0) {
+        if (isStart == false) {
+            setInterval("updateMydata()",interval);
+        }
     }
 }
 
 function updateMydata() {
     //每个周期需要执行的任务
+    isStart = true;
     getTradeInfo();
     showOrder();
     calculateTotal();
