@@ -1,4 +1,4 @@
-// javascript:(function(){var jsCode=document.createElement("script");jsCode.setAttribute("src","http://wilsonwys.github.io/tmp/btc38assist.js");document.body.appendChild(jsCode);setTimeout("startUpdateMydata(300)",1500);}());
+// javascript:(function(){if($("#btc38assist").length>0){return;};var jsCode=document.createElement("script");jsCode.setAttribute("id","btc38assist");jsCode.setAttribute("src","http://wilsonwys.github.io/tmp/btc38assist.js");document.body.appendChild(jsCode);setTimeout("startUpdateMydata(300)",1500);}());
 
 var isStart = false;
 function startUpdateMydata(interval) {
@@ -22,8 +22,8 @@ function calculateTotal() {
     //如果total表不存在则新建
     var myOrderTableTotal = document.getElementById("myOrderTableTotal");
     if ($("#myOrderTableTotal").length <= 0) {
-        var table = '<table width="881" id="myOrderTableTotal" class="tableStyle1"><tr height="35"><th width="175">挂单时间</th><th width="108">挂单类型</th><th width="160">挂单均价(<span class="mkType">CNY</span>)</th><th width="160">挂单总量(<span class="coinName">EAC</span>)</th><th width="160">挂单总额(<span class="mkType">CNY</span>)</th><th width="118">操作</th></tr></table>';
-        var tr = '<tr style="height: 35px;"><td>----</td><td>类型</td><td>挂单价格</td><td>挂单数量</td><td>挂单总额</td><td>----</td></tr>';
+        var table = '<table width="881" id="myOrderTableTotal" class="tableStyle1"><tr height="35"><th width="175">挂单时间</th><th width="108">挂单类型</th><th width="160">挂单均价(<span class="mkType">CNY</span>)</th><th width="160">挂单总量</th><th width="160">挂单总额(<span class="mkType">CNY</span>)</th><th width="118">操作</th></tr></table>';
+        var tr = '<tr style="height: 35px;"><td>----</td><td>类型</td><td>----</td><td>----</td><td>----</td><td>----</td></tr>';
         $("#myOrderDiv").append(table);
         $("#myOrderTableTotal").append(tr);
         $("#myOrderTableTotal").append(tr);
