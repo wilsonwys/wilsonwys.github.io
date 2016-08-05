@@ -6,11 +6,11 @@
 </head>
 <body>
     <input type="button" title="开启摄像头" value="开启摄像头" onclick="getMedia();" /><br />
-    <video width="500px" height="250px" autoplay="autoplay"></video><hr />
+    <video height="250px" autoplay="autoplay"></video><hr />
     <input type="button" title="视频" value="视频" onclick="getVedio();" /><br />
-    <canvas width="500px" height="250px" id="canvasvideo"></canvas>
+    <canvas height="250px" id="canvasvideo"></canvas>
     <input type="button" title="拍照" value="拍照" onclick="getPhoto();" /><br />
-    <canvas width="500px" height="250px" id="canvasimg"></canvas><hr />
+    <canvas height="250px" id="canvasimg"></canvas><hr />
 
     <script type="text/javascript">
         var video = document.querySelector('video');
@@ -80,7 +80,7 @@
         // 将视频帧绘制到Canvas对象上,Canvas每60ms切换帧，形成肉眼视频效果
         function drawVideoAtCanvas(video,context) {
             window.setInterval(function () {
-                context.drawImage(video, 0, 0,500,250);
+                context.drawImage(video, 0, 0);
             }, 60);
         }
 
@@ -103,7 +103,7 @@
 
         //拍照
         function getPhoto() {
-            contextimg.drawImage(video, 0, 0,90,120); //将video对象内指定的区域捕捉绘制到画布上指定的区域，实现拍照。
+            contextimg.drawImage(video, 0, 0); //将video对象内指定的区域捕捉绘制到画布上指定的区域，实现拍照。
         }
 
         //视频
