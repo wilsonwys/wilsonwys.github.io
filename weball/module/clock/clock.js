@@ -1,15 +1,13 @@
 var canvas = document.getElementById('clock');
 var ctx = canvas.getContext('2d');
+ctx.save();
 var SIZE = Math.min(canvas.width, canvas.height);
 var r = SIZE / 2;
-
 //通过rem确保时钟尺寸变化时元素尺寸同步变化
 //设计尺寸是200，所以比例参照200计算
 var rem = SIZE / 200;
-
 //确保canvas大小为正方形
 canvas.width = canvas.height = SIZE;
-
 //将canvas原点设置到中心位置
 ctx.translate(r, r);
 
@@ -93,8 +91,8 @@ function drawSecond(second = 0, millisecond = 0) {
 	ctx.fillStyle = '#e14543';
 	ctx.moveTo(-2 * rem, 15 * rem);
 	ctx.lineTo(2 * rem, 15 * rem);
-	ctx.lineTo(1 * rem, -80 * rem);
-	ctx.lineTo(-1 * rem, -80 * rem);
+	ctx.lineTo(1 * rem, -75 * rem);
+	ctx.lineTo(-1 * rem, -75 * rem);
 	ctx.lineTo(-2 * rem, 15 * rem);
 	ctx.closePath();
 	ctx.fill();
@@ -125,8 +123,52 @@ function draw() {
 	drawDot();
 }
 
-//运行时就画一次，避免出现空白
-draw();
+//当页面加载完成时调整clock大小
+window.onload = function() {
+	//先画一次，避免出现空白
+	draw();
+	//按指定频率更新时钟
+	setInterval(draw, 16);
+	resizeTimer();
+}
 
-//按指定频率更新时钟
-setInterval(draw, 16);
+//当窗口大小改变时调整clock大小
+window.onresize = function() {
+	resizeTimer();
+}
+
+//调整clock大小计时器，用于动画
+var resizeTimerId = 0;
+function resizeTimer() {
+	//动态改变clock大小
+	window.clearInterval(resizeTimerId);
+	var w = document.documentElement.clientWidth;
+	var h = document.documentElement.clientHeight;
+	var targetSize = Math.min(w, h) * 0.8;
+	resizeTimerId = setInterval(
+		function () {
+			resizeClock(targetSize, 20);
+		},16);
+}
+
+//调整clock大小
+function resizeClock(targetSize = 450, step = 20) {
+	ctx.restore();
+	if(SIZE > targetSize) {
+		SIZE -= step;
+	} else {
+		SIZE += step;
+	}
+	r = SIZE / 2;
+	//通过rem确保时钟尺寸变化时元素尺寸同步变化
+	//设计尺寸是200，所以比例参照200计算
+	rem = SIZE / 200;
+	//确保canvas大小为正方形
+	canvas.width = canvas.height = SIZE;
+	//将canvas原点设置到中心位置
+	ctx.translate(r, r);
+	//接近targetSize，停止动画
+	if(Math.abs(SIZE - targetSize) <= step + 1) {
+		window.clearInterval(resizeTimerId);
+	}
+}
