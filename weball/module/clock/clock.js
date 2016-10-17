@@ -129,36 +129,21 @@ window.onload = function() {
 	draw();
 	//按指定频率更新时钟
 	setInterval(draw, 16);
-	resizeTimer();
+	resizeClock();
 }
 
 //当窗口大小改变时调整clock大小
 window.onresize = function() {
-	resizeTimer();
-}
-
-//调整clock大小计时器，用于动画
-var resizeTimerId = 0;
-function resizeTimer() {
-	//动态改变clock大小
-	window.clearInterval(resizeTimerId);
-	var w = document.documentElement.clientWidth;
-	var h = document.documentElement.clientHeight;
-	var targetSize = Math.min(w, h) * 0.8;
-	resizeTimerId = setInterval(
-		function () {
-			resizeClock(targetSize, 20);
-		},16);
+	resizeClock();
 }
 
 //调整clock大小
 function resizeClock(targetSize = 450, step = 20) {
 	ctx.restore();
-	if(SIZE > targetSize) {
-		SIZE -= step;
-	} else {
-		SIZE += step;
-	}
+	var w = document.documentElement.clientWidth;
+	var h = document.documentElement.clientHeight;
+	var targetSize = Math.min(w, h) * 0.8;
+	SIZE = targetSize;
 	r = SIZE / 2;
 	//通过rem确保时钟尺寸变化时元素尺寸同步变化
 	//设计尺寸是200，所以比例参照200计算
@@ -167,8 +152,4 @@ function resizeClock(targetSize = 450, step = 20) {
 	canvas.width = canvas.height = SIZE;
 	//将canvas原点设置到中心位置
 	ctx.translate(r, r);
-	//接近targetSize，停止动画
-	if(Math.abs(SIZE - targetSize) <= step + 1) {
-		window.clearInterval(resizeTimerId);
-	}
 }
