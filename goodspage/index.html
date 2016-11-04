@@ -1,0 +1,66 @@
+<!-- http://jqweui.com/ -->
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+	<title>GoodsPage</title>
+	<!-- head 中 -->
+	<!-- <link rel="stylesheet" type="text/css" href="/css/index.css" />
+	-->
+	<link rel="stylesheet" href="http://cdn.bootcss.com/weui/0.4.3/style/weui.min.css">
+	<link href="http://cdn.bootcss.com/jquery-weui/0.8.2/css/jquery-weui.min.css" rel="stylesheet"></head>
+<body>
+	<!-- tab及下拉刷新 -->
+	<div class="weui_tab" id='page-ptr-navbar'>
+	  <div class="weui_navbar">
+	    <a href='#tab1' class="weui_navbar_item weui_bar_item_on">
+	      客厅
+	    </a>
+	    <a href='#tab2' class="weui_navbar_item">
+	      卧室
+	    </a>
+	    <a href='#tab3' class="weui_navbar_item">
+	      厨房
+	    </a>
+	  </div>
+	  <div class="weui_tab_bd">
+	    <div id="tab1" class="weui_tab_bd_item weui_tab_bd_item_active">
+	      <div class="weui-pull-to-refresh-layer">
+	        <div class="pull-to-refresh-arrow"></div>
+	        <div class="pull-to-refresh-preloader"></div>
+	        <div class="down">下拉刷新客厅</div>
+	        <div class="up">释放刷新客厅</div>
+	        <div class="refresh">正在刷新客厅...</div>
+	      </div>
+	      <h1 class="doc-head">客厅</h1>
+	    </div>
+	    <div id="tab2" class="weui_tab_bd_item">
+	      <div class="weui-pull-to-refresh-layer">
+	        <div class="pull-to-refresh-arrow"></div>
+	        <div class="pull-to-refresh-preloader"></div>
+	        <div class="down">下拉刷新卧室</div>
+	        <div class="up">释放刷新卧室</div>
+	        <div class="refresh">正在刷新卧室...</div>
+	      </div>
+	      <h1 class="doc-head">卧室</h1>
+	    </div>
+	    <div id="tab3" class="weui_tab_bd_item">
+	      <div class="weui-pull-to-refresh-layer">
+	        <div class="pull-to-refresh-arrow"></div>
+	        <div class="pull-to-refresh-preloader"></div>
+	        <div class="down">下拉刷新厨房</div>
+	        <div class="up">释放刷新厨房</div>
+	        <div class="refresh">正在刷新厨房...</div>
+	      </div>
+	      <h1 class="doc-head">厨房</h1>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- 其他内容 -->
+	<!-- body 最后 -->
+	<script src="http://cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+	<script src="http://cdn.bootcss.com/jquery-weui/0.8.2/js/jquery-weui.min.js"></script>
+	<script type="text/javascript" src="./js/index.js"></script>
+</body>
+</html>
