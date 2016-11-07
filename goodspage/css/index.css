@@ -1,0 +1,100 @@
+/*css for page*/
+html, body {
+    height: 100%;
+}
+body, h3, p{
+    margin: 0;
+    padding: 0;
+}
+.weui_tab_bd_item {
+    width: 100%;
+}
+.weui_navbar_item.weui_bar_item_on {
+    color: #3CC51F;
+    font-weight: bold;
+}
+
+/*css for goods lists*/
+.lists{
+    padding-bottom: 40px;
+    background-color: #fff;
+}
+/*css for lists item*/
+.list-item {
+    display: -webkit-box;
+    padding: 3.125%;
+    border-bottom: 1px solid #ddd;
+}
+/*css for item pic*/
+.list-item .p {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+    margin-left: 8px;
+}
+.list-item .p-pic {
+    width: 100px;
+    height: 100px;
+    vertical-align: middle;
+}
+/*css for item description*/
+.list-item .d {
+    margin: 4px 15px 6px 0;
+    -webkit-box-flex: 1;
+}
+.list-item .d .d-title {
+    line-height: 22px;
+    margin-bottom: 5px;
+    position: relative;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-all;
+    color: #4b566a;
+    font-size: 14px;
+    height: 44px;
+}
+/*buy info*/
+.list-item .d .d-buyinfo {
+    display: -webkit-box;
+    margin-bottom: 5px;
+    margin-top: -1px;
+    height: 20px;
+    overflow: hidden;
+}
+.list-item .d .d-buyinfo p {
+    overflow: hidden;
+    font-size: 14px;
+    color: #eb5211;
+    font-style: normal;
+}
+.list-item .d .d-buyinfo .d-price {
+    text-align: left;
+}
+.list-item .d .d-buyinfo .d-tip {
+    -webkit-box-flex: 1;
+    text-align: center;
+}
+.list-item .d .d-buyinfo .d-token {
+    text-align: right;
+}
+/*button*/
+.list-item .d .d-button {
+    display: -webkit-box;
+    /*margin-top: -1px;*/
+    /*height: 20px;*/
+    overflow: hidden;
+}
+.list-item .d .d-button a {
+    width: 95%;
+    font-size: 14px;
+}
+.list-item .d .d-button .d-cplink {
+    width: 50%;
+    text-align: left;
+}
+.list-item .d .d-button .d-cptoken {
+    width: 50%;
+    text-align: right;
+}
