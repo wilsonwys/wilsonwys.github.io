@@ -7,7 +7,7 @@
 
     <title>Ω500 - flappy bird</title>
     
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="lib/jquery.min.js"></script>
 
     <link rel="stylesheet" href="res/main.css">
 </head>
@@ -31,8 +31,20 @@
 
     <hr />
     
+    <!-- Debug -->
     <div id="debug" style="text-align: left">
+        <div id="startTime" style="text-align: left"></div>
+        <div id="trainingTime" style="text-align: left"></div>
+        <div id="hightScore" style="text-align: left"></div>
+        <div id="trainingInfo" style="text-align: left"></div>
+        <div id="other" style="text-align: left"></div>
     </div>
+    <script src="src/debug/debug.js"></script>
+    <script>
+        var debug =  new Debug();
+        var startTime = 0;
+        var hightScore = 0;
+    </script>
 
 </body>
 </html>

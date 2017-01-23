@@ -20,6 +20,8 @@
 
             if (Ω.input.pressed("jump")) {
                 window.game.setScreen(new MainScreen(), {type: "inout", time:50});
+                window.startTime = new Date();
+                window.debug.printStartTime();
             }
         },
 
@@ -41,9 +43,8 @@
                 gfx.h * 0.38 + ySin - 5
             );
 
-
             atlas.render(gfx, "land", -((now / 6 | 0) % 288), gfx.h - 112);
-            atlas.render(gfx, "land", 289 - ((now / 6 | 0) % 288), gfx.h - 112);
+            atlas.render(gfx, "land", -((now / 6 | 0) % 288) - 288, gfx.h - 112);
 
             atlas.render(gfx, "button_play", 20, gfx.h - 172);
             atlas.render(gfx, "button_score", 152, gfx.h - 172);

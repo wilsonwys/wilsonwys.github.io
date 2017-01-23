@@ -55,11 +55,11 @@
 			console.log(this.Q);
 
 			// Old Q Init
-			//this.Q = new Array();
-			//for (var i = 0; i < 400/this.resolution; i++) {
-			//	this.Q[i] = {"click": 0, "do_nothing": 0};
-			//}
-			//console.log(this.Q);
+			// this.Q = new Array();
+			// for (var i = 0; i < 400/this.resolution; i++) {
+			// 	this.Q[i] = {"click": 0, "do_nothing": 0};
+			// }
+			// console.log(this.Q);
 
 		},
 
@@ -107,6 +107,7 @@
 						this.bird.state.set("RUNNING");
 					}
 					this.tick_RUNNING();
+					window.debug.printTrainingTime();
 
 					// Step 2: Observe Reward R
 					valid = true;
@@ -470,6 +471,10 @@
 		},
 
 		renderScore: function (gfx, atlas) {
+			if (this.score > window.hightScore) {
+				window.hightScore = this.score;
+				window.debug.printHightScore();
+			}
 			var sc = this.score + "";
 			for (var i = 0; i < sc.length; i++) {
 				atlas.render(gfx, "font_0" + (48 + parseInt(sc[i], 10)), i * 18 + 130, gfx.h * 0.16);
