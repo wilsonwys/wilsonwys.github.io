@@ -1,0 +1,23 @@
+<html>
+<script type="text/javascript">
+function inspect()
+{
+  var s1 = performance.getEntriesByType('resource')[0].x5HttpStatusCode;
+  var s2 = performance.getEntriesByType('resource')[0].x5ErrorCode;
+  var s3 = performance.getEntriesByType('resource')[0].x5LoadFromLocalCache;
+  var s4 = performance.getEntriesByType('resource')[0].x5ContentLength;
+  var s5 = performance.getEntriesByType('resource')[0].x5ContentType;
+  var s6 = performance.getEntriesByType('resource')[0].x5ImgDecodeStatus;
+  var s7 = performance.getEntriesByType('resource')[0].x5LastModified;
+  document.getElementById('field1').value = s1 + " : " + s2 + " : " + s3 + " : " + s4 + " : " + s5 + " : " + s6 + " : " + s7;
+  alert("done");
+}
+</script>
+<body>
+
+Field1: <input type="text" id="field1" value="Hello World!" size=200>
+
+<button onclick="inspect()">Show</button>
+
+</body>
+</html>
